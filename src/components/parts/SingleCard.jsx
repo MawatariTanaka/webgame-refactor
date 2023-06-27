@@ -1,5 +1,6 @@
 import React from "react";
-import "../scss/Css/SingleCard.css";
+import "../../styles/SingleCard.css";
+import cardCover from "../../images/memory_game/bg1.png"
 
 const SingleCard = ({ card, click, flipped, choicing }) => {
   return (
@@ -13,7 +14,7 @@ const SingleCard = ({ card, click, flipped, choicing }) => {
             }
           }}
           className="back"
-          src="./imgs/cover.png"
+          src={cardCover}
           alt=""
         />
       </div>

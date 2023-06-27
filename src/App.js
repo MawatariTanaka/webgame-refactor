@@ -6,6 +6,11 @@ import { ChatProvider } from "./contexts/ChatContext";
 import { auth, db } from "./contexts/FirebaseContext";
 
 import Header from "./components/Header";
+import Home from "./pages";
+import MemoryGame from "./pages/memory_game";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import About from "./pages/About";
 
 function App() {
     const [user, setUser] = useState(null);
@@ -40,7 +45,14 @@ function App() {
         <AppProvider>
             <ChatProvider>
                 <Header />
-                <Routes></Routes>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/memory-game" element={<MemoryGame />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
             </ChatProvider>
         </AppProvider>
     );

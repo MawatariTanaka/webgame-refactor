@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { AppContext } from "../contexts/AppContext";
+import { AppContext } from "../../contexts/AppContext";
 
 const Timer = (probs) => {
   const { statusGame, setStatusGame, setShowDialog } = useContext(AppContext);
@@ -9,10 +9,8 @@ const Timer = (probs) => {
   const timeInterval = useRef(null);
   const { overTime } = probs;
 
-  // thoi gian hien tai
   const getTime = (timeCount) => {
     timeCurrent.current = timeCount - Date.now();
-    // console.log("getTime: ", timeCurrent.current , timeInterval.current);
     if (timeCurrent.current >= 0) {
       setMinutes(Math.floor((timeCurrent.current / 1000 / 60) % 60));
       setSeconds(Math.floor((timeCurrent.current / 1000) % 60));
@@ -25,7 +23,7 @@ const Timer = (probs) => {
   };
 
   useEffect(() => {
-    let time = Date.now() + 5 * 1000 +50;
+    let time = Date.now() + 60 * 1000 + 50;
     if (statusGame === "play") {
       getTime(time);
       timeInterval.current = setInterval(() => getTime(time), 1000);

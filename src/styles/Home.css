@@ -1,0 +1,23 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.game-card {
+    height: 311px;
+    width: 240px;
+    margin: 30px 20px 0;
+}
+
+.game-preview {
+    height: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-preview img {
+    width: 200px;
+    height: 200px;
+}

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import "../scss/Css/Dialog.css";
-import { AppContext } from "../contexts/AppContext";
+import "../../styles/Dialog.css";
+import { AppContext } from "../../contexts/AppContext";
 import { Button } from "antd";
 
 const Dialog = (probs) => {

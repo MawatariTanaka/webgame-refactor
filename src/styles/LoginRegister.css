@@ -1,0 +1,48 @@
+:root {
+    --dark-blue-main: #051525;
+    --dark-blue-secondary: #132231;
+    --light-blue-main: #0a618c;
+    --light-blue-secondary: #34c0db;
+    --light-grey: #e6e6e4;
+    --grey: #adadad;
+}
+
+.auth-form {
+    width: fit-content;
+    padding: 2rem;
+    border-radius: 2rem;
+    margin: 3rem auto;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem;
+    flex-direction: column;
+    background: linear-gradient(
+        to top,
+        var(--light-blue-main),
+        var(--light-blue-secondary)
+    );
+}
+
+.auth-label {
+    padding: 1rem 0.5rem;
+}
+
+.auth-input {
+    padding: 0.5rem;
+    width: 20rem;
+    background-color: white;
+    border-radius: 1rem;
+}
+
+.new-user-signin {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.new-user-signin a {
+    margin-left: 1.5rem;
+    text-decoration: none;
+    border-bottom: 2px solid white;
+    color: white;
+}
