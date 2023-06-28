@@ -1,15 +1,16 @@
 import React from 'react'
 import { Row, Col } from 'antd';
 
-import Contact from './Contact';
 import "../../../styles/ChatRoom.css";
+import Contact from './Contact';
+import ShowRoom from './ShowRoom';
 
 export default function ChatRoom() {
   return (
     <div>
         <Row className="chatroom-container">
             <Col className="room-list-container" span={6}><Contact /></Col>
-            <Col span={18}></Col>
+            <Col className="current-room-container" span={18}><ShowRoom/></Col>
         </Row>
     </div>
   )

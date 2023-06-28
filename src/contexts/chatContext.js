@@ -3,7 +3,7 @@ import { createContext, useReducer } from "react";
 const initialState = {
     showRoomDetail: false,
     currentRoomId: "",
-    goingToAddRoom: "",
+    goingToAddRoom: false,
     goingToBan: "",
 };
 
@@ -12,12 +12,13 @@ const chatReducer = (state, action) => {
         case "SET_ADD_ROOM":
             return {
                 ...state,
-                goingToAddRoom: action.payload[0],
+                goingToAddRoom: true,
             };
         case "CHANGE_ROOM":
             return {
                 ...state,
                 currentRoomId: action.payload,
+                goingToAddRoom: false,
             };
         case "CHANGE_SHOW_STATUS":
             return {

@@ -15,7 +15,7 @@ import { ChatContext } from '../../../contexts/ChatContext';
 
 const { Option } = Select;
 
-export default function CreateMessage() {
+export default function CreateRoom() {
     const [form] = Form.useForm();
     const [options, setOptions] = useState([]);
     const [roomName, setRoomName] = useState('');
@@ -24,6 +24,10 @@ export default function CreateMessage() {
     const { dispatch } = useContext(ChatContext);
 
     const onFinish = async () => {
+        if (!roomName || !otherPlayer[0] || !otherPlayer[1]) {
+            return;
+        }
+
         const currentBan = await getDoc(
             doc(db, 'users', auth.currentUser.uid)
         ).then((doc) => {
@@ -53,6 +57,7 @@ export default function CreateMessage() {
         const roomData = {
             ban: currentBan.fullBan,
             ban_chat: currentBan.chatBan,
+            bet: [0, 0],
             coverPhotoURL: auth.currentUser.photoURL,
             createdAt: timestamp,
             host: auth.currentUser.displayName,
@@ -90,7 +95,7 @@ export default function CreateMessage() {
     };
 
     return (
-        <Form form={form} onFinish={onFinish}>
+        <Form className="create-room-form" form={form} onFinish={onFinish}>
             <Form.Item name="roomName" label="Room Name">
                 <Input
                     value={roomName}

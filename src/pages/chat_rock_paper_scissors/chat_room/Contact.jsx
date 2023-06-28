@@ -57,7 +57,6 @@ export default function Contact() {
                 onClick={() => {
                     dispatch({
                         type: "SET_ADD_ROOM",
-                        payload: [true],
                     });
                 }}
             >
