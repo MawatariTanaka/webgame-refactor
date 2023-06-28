@@ -1,0 +1,21 @@
+.chatroom-container {
+    height: 80vh;
+    width: 100%;
+}
+
+.room-list-container {
+    height: inherit;
+    border-right: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+}
+
+.list-room {
+    background: linear-gradient(to right, #0a618c, #34c0db);
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    color: white;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}

@@ -35,7 +35,7 @@ const Home = () => {
                             />
                     }
                     onClick={() => {
-                        navigate('/Game2');
+                        navigate('/rock-paper-scissors-game');
                     }}
                 >
                     Rock Paper Scissors Game
