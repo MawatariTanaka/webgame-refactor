@@ -99,3 +99,28 @@
     font-weight: bold;
     text-align: center;
 }
+
+.messaging-detail-layout {
+    position: sticky;
+    top: 0;
+    width: 40%;
+    color: black;
+}
+
+.messaging-detail-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--light-grey);
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.bet-decision-alert {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+}

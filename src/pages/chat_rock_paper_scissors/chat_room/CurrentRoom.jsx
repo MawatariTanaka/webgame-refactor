@@ -77,7 +77,7 @@ export default function CurrentRoom() {
                     ))}
             </Content>
             {banChat.includes(auth.currentUser.uid) ? null : (
-                <Footer class="message-send-chat">
+                <Footer className="message-send-chat">
                     <form
                         onSubmit={handleSubmit}
                         style={{ display: "flex", flex: 1 }}
@@ -88,6 +88,15 @@ export default function CurrentRoom() {
                             onChange={(event) => setText(event.target.value)}
                             style={{ marginRight: "10px" }}
                         />
+                        <Button style={{ marginRight: "10px", color: "red", border: "1px solid red" }}
+                        onClick={() => {
+                            dispatch({
+                                type: "CHANGE_GOING_TO_BET",
+                                payload: true,
+                            });
+                        }}>
+                            Bet
+                        </Button>
                         <Button type="primary" htmlType="submit">
                             Send
                         </Button>

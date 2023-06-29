@@ -57,7 +57,15 @@ export default function CreateRoom() {
         const roomData = {
             ban: currentBan.fullBan,
             ban_chat: currentBan.chatBan,
-            bet: [0, 0],
+            betting: [{
+                player_id: "",
+                bet: 0,
+                choice: ""
+            }, {
+                player_id: "",
+                bet: 0,
+                choice: ""
+            }],
             coverPhotoURL: auth.currentUser.photoURL,
             createdAt: timestamp,
             host: auth.currentUser.displayName,

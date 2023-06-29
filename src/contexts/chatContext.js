@@ -5,6 +5,7 @@ const initialState = {
     currentRoomId: "",
     goingToAddRoom: false,
     goingToBan: "",
+    goingToBet: "",
 };
 
 const chatReducer = (state, action) => {
@@ -29,6 +30,11 @@ const chatReducer = (state, action) => {
             return {
                 ...state,
                 goingToBan: action.payload,
+            };
+        case "CHANGE_GOING_TO_BET":
+            return {
+                ...state,
+                goingToBet: action.payload,
             };
         default:
             return state;
