@@ -18,3 +18,28 @@
     align-items: flex-start;
     line-height: 2rem;
 }
+
+.rock-paper-scissors-game-container .game-state {
+    padding: 1rem;
+}
+
+.rock-paper-scissors-game-container .game-state div {
+    padding: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rock-paper-scissors-game-container .game-state .name {
+    font-size: 1.5rem;
+}
+
+.rock-paper-scissors-game-container .game-state .choice {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 10px solid hsl(217, 16%, 45%);
+    border-radius: 50%;
+}
