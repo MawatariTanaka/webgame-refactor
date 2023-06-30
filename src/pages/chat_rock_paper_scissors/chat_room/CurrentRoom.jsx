@@ -62,7 +62,7 @@ export default function CurrentRoom() {
                         <div
                             key={index}
                             style={
-                                auth.currentUser.uid == message.sender
+                                auth.currentUser.uid === message.sender
                                     ? {
                                           alignSelf: "flex-end",
                                           background:
@@ -95,7 +95,7 @@ export default function CurrentRoom() {
                                 payload: true,
                             });
                         }}>
-                            Bet
+                            Play
                         </Button>
                         <Button type="primary" htmlType="submit">
                             Send
