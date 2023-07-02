@@ -3,7 +3,7 @@ import { Route, Routes, useNavigate, Navigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { AppProvider } from "./contexts/AppContext";
 import { ChatProvider } from "./contexts/ChatContext";
-import { auth, db } from "./contexts/FirebaseContext";
+import { auth } from "./contexts/FirebaseContext";
 
 import Header from "./components/Header";
 import Home from "./pages";
