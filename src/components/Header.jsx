@@ -12,12 +12,12 @@ const Menus = [
         style: "",
         icon: "",
     },
-    {
-        title: "About",
-        url: "/About",
-        style: "",
-        icon: "",
-    },
+    // {
+    //     title: "About",
+    //     url: "/About",
+    //     style: "",
+    //     icon: "",
+    // },
     {
         title: "Login",
         url: "/Login",
@@ -30,17 +30,24 @@ const Menus = [
         style: "",
         icon: "",
     },
+    {
+        title: "Logout",
+        url: "/Logout",
+        style: "",
+        icon: "",
+    },
 ];
 
 const Header = () => {
     const filteredMenus = auth.currentUser
         ? Menus.filter((e) => e.title !== "Login" && e.title !== "Register")
-        : Menus;
+        : Menus.filter((e) => e.title !== "Logout");
 
     return (
         <div className="nav-bar">
             <div className="nav">
                 <img style={{ width: "64px" }} src={logoIcon} />
+                <h1>Web Game</h1>
             </div>
 
             <div className="nav">

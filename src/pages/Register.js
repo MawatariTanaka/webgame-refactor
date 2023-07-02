@@ -1,22 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Form, FormGroup, Col, Label, Input, Container } from "reactstrap";
 import { Button } from "reactstrap";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import "../styles/Register.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { auth, db } from "../contexts/FirebaseContext";
+import { doc, setDoc } from "firebase/firestore";
+import { ChatContext } from "../contexts/ChatContext";
 
-const notify = () => toast();
-
-const iniFormValue = {
+const initFormValue = {
     userName: "",
     email: "",
     password: "",
 };
 
 export default function Register() {
-    const [formValue, setFormValue] = useState(iniFormValue);
+    const [formValue, setFormValue] = useState(initFormValue);
+    const { dispatch } = useContext(ChatContext);
+    const navigate = useNavigate();
+
     const confirmPassword = document.querySelector("#confirmPassword");
     const handleChange = (e) => {
         const { value, name } = e.target; // value và name lấy trong ô input
@@ -38,7 +43,7 @@ export default function Register() {
     const [checkUser, setCheckUser] = useState([]);
 
     //-------------------------------------------------------------------------------------------------------------------
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         // validate email
         const pattern =
@@ -62,47 +67,32 @@ export default function Register() {
         } else if (formValue.password !== confirmPassword.value) {
             toast("Password and confirm password not match");
         } else {
-            // Get data from API --------------------------------------
-            fetch("https://64917a7f2f2c7ee6c2c84970.mockapi.io/User", {
-                method: "GET",
-                headers: { "content-type": "application/json" },
-            })
-                .then((res) => {
-                    if (res.ok) {
-                        return res.json();
-                    }
-                })
-                .then((tasks) => {
-                    function checkNameExists(array) {
-                        return array.some(
-                            (item) => item.userName === formValue.userName
-                        );
-                    }
-                    if (checkNameExists(tasks)) {
-                        toast("Username already exists");
-                    } else {
-                        // ghép ở đây. Sau khi đăng ký thành công thì về trang home
-                        toast("Register successful");
-                        fetch(
-                            "https://64917a7f2f2c7ee6c2c84970.mockapi.io/User",
-                            {
-                                method: "POST",
-                                headers: { "content-type": "application/json" },
-                                body: JSON.stringify(formValue),
-                            }
-                        )
-                            .then((res) => {
-                                if (res.ok) {
-                                    return res.json();
-                                }
-                            })
-                            .then((task) => {
-                                console.log(task);
-                            })
-                            .catch((error) => {});
-                    }
-                })
-                .catch((error) => {});
+            try {
+                await createUserWithEmailAndPassword(
+                    auth,
+                    formValue.email,
+                    formValue.password
+                ).then(async () => {
+                    const user = auth.currentUser;
+                    await updateProfile(user, {
+                        displayName: formValue.userName,
+                    });
+                    const userRef = doc(db, "users", user.uid);
+                    await setDoc(userRef, {
+                        ban: [],
+                        ban_chat: [],
+                        email: user.email,
+                        id: user.uid,
+                        photoURL: "https://picsum.photos/200/300?random=1",
+                        point: 100,
+                        username: formValue.userName,
+                    });
+                    dispatch({ type: "RESET" });
+                    navigate("/");
+                });
+            } catch (error) {
+                toast(error.message);
+            }
         }
     };
 

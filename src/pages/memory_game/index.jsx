@@ -19,6 +19,7 @@ import chuoiImg from "../../images/memory_game/chuoi.png";
 import duaImg from "../../images/memory_game/dua.png";
 import duahauImg from "../../images/memory_game/duahau.png";
 import toiImg from "../../images/memory_game/toi.png";
+import swordImg from "../../images/memory_game/sword-1.png";
 
 const cardsImage = [
     { src: boImg, matched: false },
@@ -26,6 +27,7 @@ const cardsImage = [
     { src: duaImg, matched: false },
     { src: duahauImg, matched: false },
     { src: toiImg, matched: false },
+    { src: boImg, matched: false },
 ];
 
 const MemoryGame = () => {
@@ -85,10 +87,6 @@ const MemoryGame = () => {
                     });
                 });
                 resetChoice();
-                setStatusGame("win");
-                setShowDialog(true);
-                stop();
-                play_win();
             } else {
                 setTimeout(() => {
                     resetChoice();
@@ -96,6 +94,21 @@ const MemoryGame = () => {
             }
         }
     }, [choice1, choice2]);
+
+    useEffect(() => {
+        let state = true;
+        for (let i = 0; i < cards.length; i++) {
+            if (!cards[i].matched) {
+                state = false;
+            }
+        }
+        if (state) {
+            setStatusGame("win");
+            setShowDialog(true);
+            stop();
+            play_win();
+        }
+    }, [cards]);
 
     const resetChoice = () => {
         setChoice1(null);

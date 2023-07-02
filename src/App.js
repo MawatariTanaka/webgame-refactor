@@ -36,9 +36,8 @@ function App() {
         const navigate = useNavigate();
 
         useEffect(() => {
-            setTimeout(() => {
-                navigate("/");
-            }, 3000);
+            auth.signOut();
+            navigate("/");
         }, []);
         return <div>404</div>;
     };
