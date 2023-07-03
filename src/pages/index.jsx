@@ -1,9 +1,9 @@
-import React from 'react';
-import { Card, Col } from 'antd';
-import { useNavigate } from 'react-router-dom';
-import memoryGameCoverImg from '../images/memory_game/preview.png';
-import rockPaperScissorsCoverImg from '../images/rock_paper_scissors/image-rules.svg';
-import '../styles/Home.css';
+import React from "react";
+import { Card, Col } from "antd";
+import { useNavigate } from "react-router-dom";
+import memoryGameCoverImg from "../images/memory_game/preview.png";
+import rockPaperScissorsCoverImg from "../images/rock_paper_scissors/image-rules.svg";
+import "../styles/Home.css";
 
 const Home = () => {
     const navigate = useNavigate();
@@ -14,9 +14,15 @@ const Home = () => {
                 <Card
                     className="game-card"
                     hoverable
-                    cover={<img alt="Memory game preview" src={memoryGameCoverImg} />}
+                    cover={
+                        <img
+                            className="game-card-img-cover"
+                            alt="Memory game preview"
+                            src={memoryGameCoverImg}
+                        />
+                    }
                     onClick={() => {
-                        navigate('/memory-game');
+                        navigate("/memory-game");
                     }}
                 >
                     Memory Game
@@ -28,14 +34,14 @@ const Home = () => {
                     className="game-card"
                     hoverable
                     cover={
-                        
-                            <img
-                                alt="Rock Paper Scissors Game preview"
-                                src={rockPaperScissorsCoverImg}
-                            />
+                        <img
+                            className="game-card-img-cover"
+                            alt="Rock Paper Scissors Game preview"
+                            src={rockPaperScissorsCoverImg}
+                        />
                     }
                     onClick={() => {
-                        navigate('/rock-paper-scissors-game');
+                        navigate("/rock-paper-scissors-game");
                     }}
                 >
                     Rock Paper Scissors Game
