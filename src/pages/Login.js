@@ -30,7 +30,7 @@ export default function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (formValue.userName == "" || formValue.password == "") {
+        if (formValue.userName === "" || formValue.password === "") {
             toast("Please provide complete information.");
         } else {
             try {
@@ -53,21 +53,28 @@ export default function Login() {
             style={{
                 display: "flex",
                 justifyContent: "center",
-                padding: "5rem",
+                marginTop: "100px",
             }}
         >
             <Form onSubmit={handleSubmit} id="form-container">
                 <Label id="name-page">Login Page</Label>
-                <FormGroup row>
+                <FormGroup
+                    row
+                    style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                    }}
+                >
                     <Label
                         for="exampleEmail"
-                        sm={2}
+                        sm={3}
                         className="name-input"
                         size="lg"
                     >
                         Username
                     </Label>
-                    <Col sm={10}>
+                    <Col sm={8}>
                         <Input
                             type="text"
                             name="userName"
@@ -78,11 +85,18 @@ export default function Login() {
                         />
                     </Col>
                 </FormGroup>
-                <FormGroup row>
-                    <Label for="exampleEmail2" className="name-input" sm={2}>
+                <FormGroup
+                    row
+                    style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                    }}
+                >
+                    <Label for="exampleEmail2" className="name-input" sm={3}>
                         Password
                     </Label>
-                    <Col sm={10}>
+                    <Col sm={8}>
                         <Input
                             type="password"
                             name="password"

@@ -34,11 +34,14 @@ const Home = () => {
                     className="game-card"
                     hoverable
                     cover={
-                        <img
-                            className="game-card-img-cover"
-                            alt="Rock Paper Scissors Game preview"
-                            src={rockPaperScissorsCoverImg}
-                        />
+                        <div>
+                            <img
+                                className="game-card-img-cover"
+                                alt="Rock Paper Scissors Game preview"
+                                src={rockPaperScissorsCoverImg}
+                                style={{ padding: "1rem" }}
+                            />
+                        </div>
                     }
                     onClick={() => {
                         navigate("/rock-paper-scissors-game");

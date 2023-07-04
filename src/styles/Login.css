@@ -16,13 +16,10 @@
 }
 
 #form-container {
-    top: 50%;
-    left: 50%;
     background-image: linear-gradient(to right, #42979d, #64a1dd);
     width: 650px;
     box-shadow: 0px 0px 25px #42979d;
     border-radius: 20px;
-    padding: 48px;
 }
 
 #name-page {
@@ -42,7 +39,7 @@
 
 #btn-register {
     font-size: 25px;
-    margin: 2px 0px 0px 83%;
+    margin: 5px 0px 0px 83%;
     font-weight: bolder;
 }
 
