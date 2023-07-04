@@ -40,8 +40,6 @@ export default function Register() {
     const refreshString = () => {
         setCaptcha(Math.random().toString(36).slice(8));
     };
-    const [checkUser, setCheckUser] = useState([]);
-
     //-------------------------------------------------------------------------------------------------------------------
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -52,10 +50,10 @@ export default function Register() {
         const usernameRegex = /^[a-zA-Z0-9_-]{4,16}$/;
 
         if (
-            formValue.userName == "" ||
-            formValue.email == "" ||
-            formValue.password == "" ||
-            confirmPassword.value == ""
+            formValue.userName === "" ||
+            formValue.email === "" ||
+            formValue.password === "" ||
+            confirmPassword.value === ""
         ) {
             toast("Please fill full information!");
         } else if (captchaActive.textContent !== captchaText.value) {
