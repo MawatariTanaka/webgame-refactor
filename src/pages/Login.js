@@ -72,11 +72,11 @@ export default function Login() {
                         className="name-input"
                         size="lg"
                     >
-                        Username
+                        Email
                     </Label>
                     <Col sm={8}>
                         <Input
-                            type="text"
+                            type="email"
                             name="userName"
                             className="exampleEmail2"
                             bsSize="lg"
