@@ -29,6 +29,7 @@ export default function RoomDetail() {
     }, [currentRoomId]);
 
     function renderBanButtons(user) {
+        return null;
         if (
             hostData.id === auth.currentUser.uid &&
             user.id !== auth.currentUser.uid

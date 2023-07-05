@@ -103,7 +103,9 @@ export default function RockPaperScissors() {
                     {finishedBetting && (
                         <>
                             <p style={{ fontSize: "1.5rem" }}>
-                                {evaluateWinner(hostChoice, playerChoice)}
+                                {hostChoice &&
+                                    playerChoice &&
+                                    evaluateWinner(hostChoice, playerChoice)}
                             </p>
                             <Button
                                 style={{
@@ -116,29 +118,18 @@ export default function RockPaperScissors() {
                                         "rooms",
                                         currentRoomId
                                     );
-                                    const data = (await getDoc(docRef)).data();
-                                    const currentHost = data.host_id;
-                                    const currentPlayer = data.player_id;
-                                    console.log(currentHost, currentPlayer);
-                                    if (auth.currentUser.uid === currentHost) {
-                                        updateDoc(docRef, {
-                                            "betting.host": {
-                                                bet: 0,
-                                                choice: 0,
-                                            },
-                                            "readyToPlay.host": true,
-                                        });
-                                    } else if (
-                                        auth.currentUser.uid === currentPlayer
-                                    ) {
-                                        updateDoc(docRef, {
-                                            "betting.player": {
-                                                bet: 0,
-                                                choice: 0,
-                                            },
-                                            "readyToPlay.player": true,
-                                        });
-                                    }
+                                    updateDoc(docRef, {
+                                        "betting.host": {
+                                            bet: 0,
+                                            choice: 0,
+                                        },
+                                        "readyToPlay.host": true,
+                                        "betting.player": {
+                                            bet: 0,
+                                            choice: 0,
+                                        },
+                                        "readyToPlay.player": true,
+                                    });
                                 }}
                             >
                                 Play Again
