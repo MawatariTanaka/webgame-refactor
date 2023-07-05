@@ -1,10 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "../../styles/Dialog.css";
 import { AppContext } from "../../contexts/AppContext";
-import { Button, Col, Row, Slider } from "antd";
-import {
-    SoundOutlined
-} from '@ant-design/icons';
+import { Button } from "antd";
 
 const Dialog = (probs) => {
     const { showDialog, statusGame } = useContext(AppContext);
@@ -17,11 +14,11 @@ const Dialog = (probs) => {
         console.log("dialog", windowWidth, windowHeight);
         showDialog
             ? setStyle({
-                opacity: 1,
-                top: `${0}px`,
-                width: `${windowWidth}px`,
-                height: `${windowHeight}px`,
-            })
+                  opacity: 1,
+                  top: `${0}px`,
+                  width: `${windowWidth}px`,
+                  height: `${windowHeight}px`,
+              })
             : setStyle({ width: `${0}px`, height: `${0}px` });
     }, [showDialog]);
 
@@ -66,34 +63,11 @@ const DialogMenu = (probs) => {
     );
 };
 
-const IconSlider = (props) => {
-    const { volume, setVolume } = useContext(AppContext);
-
-    const { max, min } = props;
-    const [value, setValue] = useState(0);
-    const mid = Number(((max - min) / 2).toFixed(5));
-    const preColorCls = volume >= mid ? '' : 'icon-wrapper-active';
-    const nextColorCls = volume >= mid ? 'icon-wrapper-active' : '';
-    return (
-        <div className="icon-wrapper" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <div style={{ fontSize: '30px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <SoundOutlined className={nextColorCls} style={{ fontSize: '30px' }} />
-            </div>
-            <Slider {...props} onChange={setVolume} value={volume} style={{ width: '80%', display: 'flex', justifyContent: 'center', alignItems: 'center' }} />
-        </div>
-    );
-};
-
 const DialogSetting = (probs) => {
     const { setStatusGame } = useContext(AppContext);
     return (
         <div className="dialog-menu">
             <h1> Setting </h1>
-            <Row style={{ width: '80%', height: '50px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <Col span={24}>
-                    <IconSlider max={100} min={0} />
-                </Col>
-            </Row>
             <Button
                 onClick={() => {
                     setStatusGame("menu");

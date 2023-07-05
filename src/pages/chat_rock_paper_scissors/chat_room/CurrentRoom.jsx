@@ -54,7 +54,7 @@ export default function CurrentRoom() {
     }
 
     return (
-        <Layout>
+        <Layout style={{height: '100%'}}>
             <CurrentRoomHeader roomName={roomName} />
             <Content className="message-container">
                 {auth.currentUser.uid &&

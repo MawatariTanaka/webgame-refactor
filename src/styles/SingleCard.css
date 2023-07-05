@@ -1,19 +1,19 @@
-.card {
+.cardItem {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: none;
 }
 
-.card img {
+.cardItem img {
     width: 100%;
     height: 100%;
     display: block;
+    border: 2px solid #000;
     border-radius: 6px;
 }
 
-.card .front {
+.cardItem .front {
     transform: rotateY(90deg);
     position: absolute;
     transition: all ease-in 0.2s;
@@ -24,7 +24,7 @@
     transition-delay: 0.2s;
 }
 
-.card .back {
+.cardItem .back {
     transition: all ease-in 0.2s;
     transition-delay: 0.2s;
 }

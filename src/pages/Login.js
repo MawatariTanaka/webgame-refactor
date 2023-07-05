@@ -30,7 +30,7 @@ export default function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (formValue.userName == "" || formValue.password == "") {
+        if (formValue.userName === "" || formValue.password === "") {
             toast("Please provide complete information.");
         } else {
             try {
@@ -53,12 +53,19 @@ export default function Login() {
             style={{
                 display: "flex",
                 justifyContent: "center",
-                marginTop: '100px'
+                marginTop: "100px",
             }}
         >
             <Form onSubmit={handleSubmit} id="form-container">
                 <Label id="name-page">Login Page</Label>
-                <FormGroup row style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                <FormGroup
+                    row
+                    style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                    }}
+                >
                     <Label
                         for="exampleEmail"
                         sm={3}
@@ -78,7 +85,14 @@ export default function Login() {
                         />
                     </Col>
                 </FormGroup>
-                <FormGroup row style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                <FormGroup
+                    row
+                    style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                    }}
+                >
                     <Label for="exampleEmail2" className="name-input" sm={3}>
                         Password
                     </Label>

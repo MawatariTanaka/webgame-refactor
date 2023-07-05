@@ -4,7 +4,7 @@ import cardCover from "../../images/memory_game/bg1.png"
 
 const SingleCard = ({ card, click, flipped, choicing }) => {
   return (
-    <div className="card">
+    <div className="cardItem">
       <div className={flipped ? "flipped" : ""}>
         <img className="front" src={card.src} alt="" />
         <img
