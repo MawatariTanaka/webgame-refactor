@@ -12,7 +12,6 @@ import {
 } from "firebase/firestore";
 import { auth, db } from "../../../contexts/FirebaseContext";
 import { ChatContext } from "../../../contexts/ChatContext";
-import "../../../styles/ChatRoom.css";
 
 export default function Contact() {
     const [availableRooms, setAvailableRooms] = useState([]);
@@ -50,20 +49,11 @@ export default function Contact() {
     }, [auth.currentUser]);
 
     return (
-        <div
-            style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                marginTop: "20px",
-                position: "sticky",
-                top: "0",
-            }}
-        >
+        <>
             <Button
                 type="primary"
                 icon={<PlusOutlined />}
-                style={{ width: "90%", height: "50px" }}
+                style={{ width: "100%" }}
                 onClick={() => {
                     dispatch({
                         type: "SET_ADD_ROOM",
@@ -73,7 +63,6 @@ export default function Contact() {
                 Create room
             </Button>
             <List
-                style={{ width: "90%" }}
                 itemLayout="horizontal"
                 dataSource={availableRooms}
                 renderItem={({ host, roomName, coverPhotoURL, id }) => (
@@ -97,21 +86,20 @@ export default function Contact() {
                             style={{ margin: "0 1rem" }}
                         />
                         <div style={{ color: "white" }}>
-                            <div
-                                style={{
-                                    fontWeight: 700,
-                                    wordWrap: "break-word",
-                                }}
-                            >
-                                {host}
+                            <div style={{ fontWeight: 700 }}>
+                                {host.length > 8
+                                    ? `${host.slice(0, 8)}...`
+                                    : host}
                             </div>
-                            <div style={{ wordWrap: "break-word" }}>
-                                {roomName}
+                            <div>
+                                {roomName.length > 8
+                                    ? `${roomName.slice(0, 8)}...`
+                                    : roomName}
                             </div>
                         </div>
                     </List.Item>
                 )}
             />
-        </div>
+        </>
     );
 }

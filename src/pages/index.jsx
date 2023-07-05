@@ -34,12 +34,18 @@ const Home = () => {
                     className="game-card"
                     hoverable
                     cover={
-                        <div>
-                            <img
-                                className="game-card-img-cover"
+                        <div style={{
+                            height: '240px',
+                            padding: '0px 10px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            backgroundColor: '#659FA0',
+                            borderRadius: '10px 10px 0px 0px'
+                        }}>
+                            <img style={{width: '220px', height: '220px'}}
                                 alt="Rock Paper Scissors Game preview"
                                 src={rockPaperScissorsCoverImg}
-                                style={{ padding: "1rem" }}
                             />
                         </div>
                     }

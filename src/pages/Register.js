@@ -40,6 +40,8 @@ export default function Register() {
     const refreshString = () => {
         setCaptcha(Math.random().toString(36).slice(8));
     };
+    const [checkUser, setCheckUser] = useState([]);
+
     //-------------------------------------------------------------------------------------------------------------------
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -50,10 +52,10 @@ export default function Register() {
         const usernameRegex = /^[a-zA-Z0-9_-]{4,16}$/;
 
         if (
-            formValue.userName === "" ||
-            formValue.email === "" ||
-            formValue.password === "" ||
-            confirmPassword.value === ""
+            formValue.userName == "" ||
+            formValue.email == "" ||
+            formValue.password == "" ||
+            confirmPassword.value == ""
         ) {
             toast("Please fill full information!");
         } else if (captchaActive.textContent !== captchaText.value) {
@@ -99,19 +101,12 @@ export default function Register() {
             style={{
                 display: "flex",
                 justifyContent: "center",
-                marginTop: "100px",
+                marginTop: '100px'
             }}
         >
             <Form onSubmit={handleSubmit} id="form-container">
                 <Label id="name-page">Register Account</Label>
-                <FormGroup
-                    row
-                    style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                    }}
-                >
+                <FormGroup row style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}} >
                     <Label
                         for="exampleEmail"
                         sm={3}
@@ -131,14 +126,7 @@ export default function Register() {
                         />
                     </Col>
                 </FormGroup>
-                <FormGroup
-                    row
-                    style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                    }}
-                >
+                <FormGroup row style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                     <Label for="exampleEmail2" className="name-input" sm={3}>
                         Email
                     </Label>
@@ -152,14 +140,7 @@ export default function Register() {
                         />
                     </Col>
                 </FormGroup>
-                <FormGroup
-                    row
-                    style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                    }}
-                >
+                <FormGroup row style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                     <Label for="exampleEmail2" className="name-input" sm={3}>
                         Password
                     </Label>
@@ -173,14 +154,7 @@ export default function Register() {
                         />
                     </Col>
                 </FormGroup>
-                <FormGroup
-                    row
-                    style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                    }}
-                >
+                <FormGroup row style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                     <Label for="exampleEmail2" className="name-input" sm={3}>
                         Confirm Password
                     </Label>
@@ -193,20 +167,16 @@ export default function Register() {
                     </Col>
                 </FormGroup>
 
-                <FormGroup
-                    row
-                    style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                    }}
-                >
-                    <Label className="name-input" sm={3}>
+                <FormGroup row style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                    <Label
+                        className="name-input"
+                        sm={3}
+                    >
                         Validate
                     </Label>
                     <Col sm={3}>
                         <Input
-                            style={{ width: "100%" }}
+                        style={{width: '100%'}}
                             type="text"
                             id="captcha-text"
                             className="exampleEmail2"
@@ -220,19 +190,11 @@ export default function Register() {
                     >
                         {captcha}
                     </Label>
-                    <Col
-                        sm={3}
-                        style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                        }}
-                    >
+                    <Col sm={3} style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                         <Button
                             id="btn-refresh"
                             onClick={() => refreshString()}
-                            color="primary"
-                            outline
+                            color="primary" outline
                         >
                             <RefreshIcon />
                         </Button>

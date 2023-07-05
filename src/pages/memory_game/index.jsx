@@ -27,7 +27,7 @@ const cardsImage = [
     { src: duaImg, matched: false },
     { src: duahauImg, matched: false },
     { src: toiImg, matched: false },
-    { src: boImg, matched: false },
+    { src: toiImg, matched: false },
 ];
 
 const MemoryGame = () => {
@@ -36,7 +36,7 @@ const MemoryGame = () => {
     const [choice1, setChoice1] = useState(null);
     const [choice2, setChoice2] = useState(null);
     const [choicing, setChoicing] = useState(false);
-    const { setShowDialog, setStatusGame, statusGame, setIsPlaying } =
+    const { setShowDialog, setStatusGame, statusGame, setIsPlaying, volume } =
         useContext(AppContext);
 
     const [play, { stop, pause }] = useSound(sound_bg, {
@@ -47,6 +47,7 @@ const MemoryGame = () => {
         onend: () => {
             setIsPlaying(false);
         },
+        volume: volume
     });
 
     const [play_click] = useSound(sound_click);

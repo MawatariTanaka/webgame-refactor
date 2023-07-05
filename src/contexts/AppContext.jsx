@@ -19,6 +19,7 @@ export const AppProvider = ({ children }) => {
   const [showDialog, setShowDialog] = useState(false);
   const [statusGame, setStatusGame] = useState('');
   const [isPlaying, setIsPlaying] = useState(false);
+  const [volume, setVolume] = useState(0.5);
 
   return (
     <AppContext.Provider
@@ -31,7 +32,9 @@ export const AppProvider = ({ children }) => {
         statusGame,
         setStatusGame,
         isPlaying,
-        setIsPlaying
+        setIsPlaying,
+        volume,
+        setVolume
       }}
     >
       {children}
