@@ -1,5 +1,8 @@
 .rock-paper-scissors-game-container {
-    padding: 1rem;
+    position: sticky;
+    top: 0;
+    width: 95%;
+    margin: 20px auto;
 }
 
 .game-header {

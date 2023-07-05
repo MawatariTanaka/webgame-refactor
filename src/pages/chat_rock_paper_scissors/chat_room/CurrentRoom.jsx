@@ -54,7 +54,7 @@ export default function CurrentRoom() {
     }
 
     return (
-        <Layout>
+        <Layout style={{ height: "100%" }}>
             <CurrentRoomHeader roomName={roomName} />
             <Content className="message-container">
                 {auth.currentUser.uid &&
@@ -88,13 +88,19 @@ export default function CurrentRoom() {
                             onChange={(event) => setText(event.target.value)}
                             style={{ marginRight: "10px" }}
                         />
-                        <Button style={{ marginRight: "10px", color: "red", border: "1px solid red" }}
-                        onClick={() => {
-                            dispatch({
-                                type: "CHANGE_GOING_TO_BET",
-                                payload: true,
-                            });
-                        }}>
+                        <Button
+                            style={{
+                                marginRight: "10px",
+                                color: "red",
+                                border: "1px solid red",
+                            }}
+                            onClick={() => {
+                                dispatch({
+                                    type: "CHANGE_GOING_TO_BET",
+                                    payload: true,
+                                });
+                            }}
+                        >
                             Play
                         </Button>
                         <Button type="primary" htmlType="submit">
