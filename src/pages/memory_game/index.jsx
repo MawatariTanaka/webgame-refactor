@@ -27,7 +27,7 @@ const cardsImage = [
     { src: duaImg, matched: false },
     { src: duahauImg, matched: false },
     { src: toiImg, matched: false },
-    { src: toiImg, matched: false },
+    { src: swordImg, matched: false },
 ];
 
 const MemoryGame = () => {
@@ -47,7 +47,7 @@ const MemoryGame = () => {
         onend: () => {
             setIsPlaying(false);
         },
-        volume: volume
+        volume: volume,
     });
 
     const [play_click] = useSound(sound_click);
