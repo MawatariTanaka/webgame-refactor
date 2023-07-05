@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&display=swap");
+* {
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.slide {
+    background-blend-mode: multiply;
+    background-image: linear-gradient(to right, #060c16, #0e2943);
+    background-image: linear-gradient(to top, #141e30, #0a325a);
+
+    height: 100vh;
+    padding: 0;
+}
+
+.slide .home {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 5px 0 0 10px;
+}
+
+.home .home-content,
+.img {
+    width: 50%;
+}
+.home .img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    width: 795px;
+    height: 795px;
+    margin-left: 15px;
+}
+
+.home .img::before {
+    content: "";
+    position: absolute;
+    width: 800px;
+    height: 850px;
+    background-image: conic-gradient(
+        transparent,
+        transparent,
+        transparent,
+        #0ef
+    );
+    animation: animate 2s linear infinite;
+}
+.home .img::after {
+    content: "";
+    position: absolute;
+    width: 800px;
+    height: 850px;
+    background-image: conic-gradient(
+        transparent,
+        transparent,
+        transparent,
+        #d400d4
+    );
+    animation: animate 2s linear infinite;
+    animation-delay: -1s;
+}
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.home .home-content h3 {
+    font-size: 35px;
+    animation: slideBottom 1.5s ease forwards;
+    /* animation-delay: .5s; */
+}
+.home .home-content h1 {
+    font-size: 80px;
+    animation: slideRight 1.5s ease forwards;
+    /* animation-delay: .5s; */
+}
+
+.home .home-content p {
+    font-size: 28px;
+    animation: slideLeft 1.5s ease forwards;
+    /* animation-delay: .5s; */
+}
+
+.home .img img {
+    width: 777px;
+    height: 777px;
+    border-radius: 50%;
+    /* position: absolute; */
+    z-index: 1;
+    inset: 5px;
+
+    /* box-shadow: 50px 50px 50px 50px red; */
+}
+
+.home .home-content .contact {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+}
+
+.home .home-content .contact a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    height: 60px;
+    width: 60px;
+    text-decoration: none;
+    border-radius: 50%;
+    border: 2px solid #0ef;
+    color: #0ef;
+    animation: slideTop 1.5s ease forwards;
+    /* animation-delay: .5s; */
+}
+
+.home .home-content .contact a:hover {
+    background: #0ef;
+    color: black;
+    box-shadow: 0 0 15px #0ef;
+}
+
+@keyframes slideBottom {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes slideRight {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes slideLeft {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes slideTop {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}

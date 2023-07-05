@@ -12,12 +12,12 @@ const Menus = [
         style: "",
         icon: "",
     },
-    // {
-    //     title: "About",
-    //     url: "/About",
-    //     style: "",
-    //     icon: "",
-    // },
+    {
+        title: "About",
+        url: "/About",
+        style: "",
+        icon: "",
+    },
     {
         title: "Login",
         url: "/Login",
